@@ -101,6 +101,14 @@ function App() {
                   } 
                 />
                 <Route 
+                  path="/profile" 
+                  element={
+                    <AuthGuard requireAuth>
+                      <ProfilePage />
+                    </AuthGuard>
+                  } 
+                />
+                <Route 
                   path="/admin" 
                   element={
                     <AuthGuard requireAdmin>
