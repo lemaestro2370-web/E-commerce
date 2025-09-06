@@ -15,6 +15,7 @@ import { OrdersPage } from './pages/OrdersPage';
 import { OrderDetailsPage } from './pages/OrderDetailsPage';
 import { LoginPage } from './pages/auth/LoginPage';
 import { SignUpPage } from './pages/auth/SignUpPage';
+import { ProfilePage } from './pages/ProfilePage';
 import { AdminDashboard } from './pages/admin/AdminDashboard';
 import { ProductManagement } from './pages/admin/ProductManagement';
 
@@ -91,6 +92,14 @@ function App() {
                 />
                 <Route path="/auth/login" element={<LoginPage />} />
                 <Route path="/auth/signup" element={<SignUpPage />} />
+                <Route 
+                  path="/profile" 
+                  element={
+                    <AuthGuard requireAuth>
+                      <ProfilePage />
+                    </AuthGuard>
+                  } 
+                />
                 <Route 
                   path="/admin" 
                   element={

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ShoppingCart, Globe, Zap } from 'lucide-react';
+import { ShoppingCart, Globe, Zap, User, LogOut, Settings } from 'lucide-react';
 import { useAuthStore } from '../../store/authStore';
 import { useAppStore } from '../../store/appStore';
 import { useTranslation } from '../../lib/translations';
@@ -137,7 +137,22 @@ export const Header: React.FC = () => {
                       </span>
                     </Link>
                   )}
+                  {user.role === 'manager' && (
+                    <Link to="/admin">
+                      <span className="bg-blue-100 text-blue-600 px-2 py-1 rounded-full text-xs font-medium">
+                        Manager
+                      </span>
+                    </Link>
+                  )}
                 </div>
+                <Link to="/profile">
+                  <button
+                    className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
+                    title={language === 'fr' ? 'Profil' : 'Profile'}
+                  >
+                    <Settings className="h-5 w-5" />
+                  </button>
+                </Link>
                 <button
                   onClick={handleSignOut}
                   className="p-2 text-gray-400 hover:text-gray-600 transition-colors"

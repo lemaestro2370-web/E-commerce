@@ -51,11 +51,16 @@ export const authService = {
     if (!user) return null;
 
     // Get user profile from our users table
-    const { data: profile } = await supabase
+    const { data: profile, error } = await supabase
       .from('users')
       .select('*')
       .eq('id', user.id)
       .single();
+
+    if (error && error.code !== 'PGRST116') {
+      console.error('Error fetching user profile:', error);
+      return null;
+    }
 
     if (!profile) {
       // Create profile if it doesn't exist
@@ -73,8 +78,18 @@ export const authService = {
         }
       };
 
-      await supabase.from('users').insert(newProfile);
-      return newProfile;
+      const { data: createdProfile, error: createError } = await supabase
+        .from('users')
+        .insert(newProfile)
+        .select()
+        .single();
+
+      if (createError) {
+        console.error('Error creating user profile:', createError);
+        return null;
+      }
+
+      return createdProfile;
     }
 
     return profile;

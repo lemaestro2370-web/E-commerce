@@ -148,6 +148,7 @@ const seed = async () => {
         category_id: '550e8400-e29b-41d4-a716-446655440001',
         stock: 25,
         featured: true,
+        active: true,
         sku: 'IPH15PM-256-TIT',
         weight: 0.221,
         dimensions: '159.9 × 76.7 × 8.25 mm',
@@ -164,6 +165,7 @@ const seed = async () => {
         category_id: '550e8400-e29b-41d4-a716-446655440002',
         stock: 15,
         featured: true,
+        active: true,
         sku: 'AJ1-RET-BRW-42',
         weight: 0.6,
         dimensions: 'EU 42',
@@ -180,10 +182,130 @@ const seed = async () => {
         category_id: '550e8400-e29b-41d4-a716-446655440003',
         stock: 8,
         featured: true,
+        active: true,
         sku: 'NESP-VN-BLK',
         weight: 4.2,
         dimensions: '37 × 14 × 32 cm',
         tags: ['coffee', 'nespresso', 'machine', 'premium']
+      },
+      {
+        id: '660e8400-e29b-41d4-a716-446655440004',
+        name: 'Samsung Galaxy S24 Ultra',
+        name_fr: 'Samsung Galaxy S24 Ultra',
+        description: 'Flagship Android smartphone with S Pen, 200MP camera, and AI-powered features.',
+        description_fr: 'Smartphone Android phare avec S Pen, caméra 200MP et fonctionnalités IA.',
+        price: 750000,
+        image_url: 'https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=800',
+        category_id: '550e8400-e29b-41d4-a716-446655440001',
+        stock: 20,
+        featured: true,
+        active: true,
+        sku: 'SGS24U-512-BLK',
+        weight: 0.232,
+        dimensions: '162.3 × 79.0 × 8.6 mm',
+        tags: ['smartphone', 'samsung', 'android', 's-pen', 'camera']
+      },
+      {
+        id: '660e8400-e29b-41d4-a716-446655440005',
+        name: 'MacBook Pro 14" M3',
+        name_fr: 'MacBook Pro 14" M3',
+        description: 'Professional laptop with M3 chip, Liquid Retina XDR display, and all-day battery life.',
+        description_fr: 'Ordinateur portable professionnel avec puce M3, écran Liquid Retina XDR et autonomie toute la journée.',
+        price: 1250000,
+        image_url: 'https://images.pexels.com/photos/205421/pexels-photo-205421.jpeg?auto=compress&cs=tinysrgb&w=800',
+        category_id: '550e8400-e29b-41d4-a716-446655440001',
+        stock: 12,
+        featured: true,
+        active: true,
+        sku: 'MBP14-M3-512-SG',
+        weight: 1.6,
+        dimensions: '31.26 × 22.12 × 1.55 cm',
+        tags: ['laptop', 'apple', 'macbook', 'professional', 'm3']
+      },
+      {
+        id: '660e8400-e29b-41d4-a716-446655440006',
+        name: 'Adidas Ultraboost 22',
+        name_fr: 'Adidas Ultraboost 22',
+        description: 'Premium running shoes with Boost midsole technology and Primeknit upper.',
+        description_fr: 'Chaussures de course premium avec technologie Boost et tige Primeknit.',
+        price: 95000,
+        image_url: 'https://images.pexels.com/photos/1464625/pexels-photo-1464625.jpeg?auto=compress&cs=tinysrgb&w=800',
+        category_id: '550e8400-e29b-41d4-a716-446655440002',
+        stock: 30,
+        featured: false,
+        active: true,
+        sku: 'UB22-BLK-42',
+        weight: 0.32,
+        dimensions: 'EU 42',
+        tags: ['running', 'adidas', 'boost', 'primeknit']
+      },
+      {
+        id: '660e8400-e29b-41d4-a716-446655440007',
+        name: 'Sony WH-1000XM5',
+        name_fr: 'Sony WH-1000XM5',
+        description: 'Industry-leading noise canceling wireless headphones with 30-hour battery life.',
+        description_fr: 'Casque sans fil à réduction de bruit leader avec 30 heures d\'autonomie.',
+        price: 185000,
+        image_url: 'https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&cs=tinysrgb&w=800',
+        category_id: '550e8400-e29b-41d4-a716-446655440001',
+        stock: 18,
+        featured: false,
+        active: true,
+        sku: 'WH1000XM5-BLK',
+        weight: 0.25,
+        dimensions: '26.4 × 19.5 × 8.0 cm',
+        tags: ['headphones', 'sony', 'wireless', 'noise-canceling']
+      },
+      {
+        id: '660e8400-e29b-41d4-a716-446655440008',
+        name: 'Dyson V15 Detect',
+        name_fr: 'Dyson V15 Detect',
+        description: 'Cordless vacuum cleaner with laser dust detection and intelligent suction.',
+        description_fr: 'Aspirateur sans fil avec détection laser de poussière et aspiration intelligente.',
+        price: 425000,
+        image_url: 'https://images.pexels.com/photos/4107120/pexels-photo-4107120.jpeg?auto=compress&cs=tinysrgb&w=800',
+        category_id: '550e8400-e29b-41d4-a716-446655440003',
+        stock: 8,
+        featured: false,
+        active: true,
+        sku: 'DV15D-YEL',
+        weight: 3.1,
+        dimensions: '125.4 × 25.0 × 26.1 cm',
+        tags: ['vacuum', 'dyson', 'cordless', 'laser-detect']
+      },
+      {
+        id: '660e8400-e29b-41d4-a716-446655440009',
+        name: 'Tesla Model Y Accessories Kit',
+        name_fr: 'Kit d\'Accessoires Tesla Model Y',
+        description: 'Complete accessories kit for Tesla Model Y including floor mats, organizers, and charging cables.',
+        description_fr: 'Kit d\'accessoires complet pour Tesla Model Y incluant tapis, organisateurs et câbles de charge.',
+        price: 85000,
+        image_url: 'https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=800',
+        category_id: '550e8400-e29b-41d4-a716-446655440004',
+        stock: 15,
+        featured: false,
+        active: true,
+        sku: 'TSLA-MY-ACC-KIT',
+        weight: 2.5,
+        dimensions: '50 × 30 × 20 cm',
+        tags: ['tesla', 'accessories', 'electric-car', 'model-y']
+      },
+      {
+        id: '660e8400-e29b-41d4-a716-446655440010',
+        name: 'Cameroon Coffee Premium Blend',
+        name_fr: 'Mélange Premium Café du Cameroun',
+        description: 'Premium Arabica coffee beans from the highlands of Cameroon, roasted to perfection.',
+        description_fr: 'Grains de café Arabica premium des hauts plateaux du Cameroun, torréfiés à la perfection.',
+        price: 15000,
+        image_url: 'https://images.pexels.com/photos/324028/pexels-photo-324028.jpeg?auto=compress&cs=tinysrgb&w=800',
+        category_id: '550e8400-e29b-41d4-a716-446655440005',
+        stock: 50,
+        featured: true,
+        active: true,
+        sku: 'CAM-COFFEE-PREM-1KG',
+        weight: 1.0,
+        dimensions: '20 × 15 × 8 cm',
+        tags: ['coffee', 'cameroon', 'arabica', 'premium', 'local']
       }
     ];
 
@@ -210,7 +332,33 @@ const seed = async () => {
       // Coffee machine images
       { product_id: '660e8400-e29b-41d4-a716-446655440003', image_url: 'https://images.pexels.com/photos/4109743/pexels-photo-4109743.jpeg?auto=compress&cs=tinysrgb&w=800', sort_order: 0 },
       { product_id: '660e8400-e29b-41d4-a716-446655440003', image_url: 'https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=800', sort_order: 1 },
-      { product_id: '660e8400-e29b-41d4-a716-446655440003', image_url: 'https://images.pexels.com/photos/324028/pexels-photo-324028.jpeg?auto=compress&cs=tinysrgb&w=800', sort_order: 2 }
+      { product_id: '660e8400-e29b-41d4-a716-446655440003', image_url: 'https://images.pexels.com/photos/324028/pexels-photo-324028.jpeg?auto=compress&cs=tinysrgb&w=800', sort_order: 2 },
+      
+      // Samsung Galaxy images
+      { product_id: '660e8400-e29b-41d4-a716-446655440004', image_url: 'https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=800', sort_order: 0 },
+      { product_id: '660e8400-e29b-41d4-a716-446655440004', image_url: 'https://images.pexels.com/photos/1092644/pexels-photo-1092644.jpeg?auto=compress&cs=tinysrgb&w=800', sort_order: 1 },
+      
+      // MacBook images
+      { product_id: '660e8400-e29b-41d4-a716-446655440005', image_url: 'https://images.pexels.com/photos/205421/pexels-photo-205421.jpeg?auto=compress&cs=tinysrgb&w=800', sort_order: 0 },
+      { product_id: '660e8400-e29b-41d4-a716-446655440005', image_url: 'https://images.pexels.com/photos/18105/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800', sort_order: 1 },
+      
+      // Adidas images
+      { product_id: '660e8400-e29b-41d4-a716-446655440006', image_url: 'https://images.pexels.com/photos/1464625/pexels-photo-1464625.jpeg?auto=compress&cs=tinysrgb&w=800', sort_order: 0 },
+      { product_id: '660e8400-e29b-41d4-a716-446655440006', image_url: 'https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=800', sort_order: 1 },
+      
+      // Sony headphones images
+      { product_id: '660e8400-e29b-41d4-a716-446655440007', image_url: 'https://images.pexels.com/photos/3394650/pexels-photo-3394650.jpeg?auto=compress&cs=tinysrgb&w=800', sort_order: 0 },
+      { product_id: '660e8400-e29b-41d4-a716-446655440007', image_url: 'https://images.pexels.com/photos/3394651/pexels-photo-3394651.jpeg?auto=compress&cs=tinysrgb&w=800', sort_order: 1 },
+      
+      // Dyson images
+      { product_id: '660e8400-e29b-41d4-a716-446655440008', image_url: 'https://images.pexels.com/photos/4107120/pexels-photo-4107120.jpeg?auto=compress&cs=tinysrgb&w=800', sort_order: 0 },
+      
+      // Tesla accessories images
+      { product_id: '660e8400-e29b-41d4-a716-446655440009', image_url: 'https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=800', sort_order: 0 },
+      
+      // Coffee images
+      { product_id: '660e8400-e29b-41d4-a716-446655440010', image_url: 'https://images.pexels.com/photos/324028/pexels-photo-324028.jpeg?auto=compress&cs=tinysrgb&w=800', sort_order: 0 },
+      { product_id: '660e8400-e29b-41d4-a716-446655440010', image_url: 'https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg?auto=compress&cs=tinysrgb&w=800', sort_order: 1 }
     ];
 
     const { error: imagesError } = await supabase
