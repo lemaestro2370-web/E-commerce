@@ -18,6 +18,7 @@ import { SignUpPage } from './pages/auth/SignUpPage';
 import { ProfilePage } from './pages/ProfilePage';
 import { AdminDashboard } from './pages/admin/AdminDashboard';
 import { ProductManagement } from './pages/admin/ProductManagement';
+import { DashboardPage } from './pages/DashboardPage';
 
 const queryClient = new QueryClient();
 
@@ -93,10 +94,10 @@ function App() {
                 <Route path="/auth/login" element={<LoginPage />} />
                 <Route path="/auth/signup" element={<SignUpPage />} />
                 <Route 
-                  path="/profile" 
+                  path="/dashboard" 
                   element={
                     <AuthGuard requireAuth>
-                      <ProfilePage />
+                      <DashboardPage />
                     </AuthGuard>
                   } 
                 />

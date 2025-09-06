@@ -31,7 +31,7 @@ export const LoginPage: React.FC = () => {
           ? 'Connexion réussie!'
           : 'Login successful!'
       );
-      navigate('/');
+      navigate('/dashboard');
     } catch (error: any) {
       toast.error(
         language === 'fr' 
@@ -130,11 +130,14 @@ export const LoginPage: React.FC = () => {
             {/* Demo Credentials */}
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
               <h4 className="font-medium text-blue-800 mb-2">
-                {language === 'fr' ? 'Comptes de démonstration:' : 'Demo Accounts:'}
+                {language === 'fr' ? 'Créer un compte de test:' : 'Create a test account:'}
               </h4>
-              <div className="text-sm text-blue-700 space-y-1">
-                <p><strong>Admin:</strong> admin@cameroonmart.cm / admin123</p>
-                <p><strong>User:</strong> user@example.com / user123</p>
+              <div className="text-sm text-blue-700">
+                <p>{language === 'fr' 
+                  ? 'Utilisez n\'importe quel email et mot de passe pour créer un compte de test.'
+                  : 'Use any email and password to create a test account.'
+                }</p>
+                <p className="mt-1"><strong>Admin:</strong> admin@cameroonmart.cm sera automatiquement admin</p>
               </div>
             </div>
 

@@ -58,7 +58,7 @@ export const SignUpPage: React.FC = () => {
           ? 'Compte créé avec succès!'
           : 'Account created successfully!'
       );
-      navigate('/');
+      navigate('/dashboard');
     } catch (error: any) {
       toast.error(
         language === 'fr' 

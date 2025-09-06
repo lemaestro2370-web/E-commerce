@@ -18,16 +18,23 @@ export interface AuthUser {
 
 export const authService = {
   async signUp(email: string, password: string, userData?: Partial<User>) {
-    const { data, error } = await supabase.auth.signUp({
+    // First create the auth user
+    const { data: authData, error: authError } = await supabase.auth.signUp({
       email,
       password,
       options: {
-        data: userData
+        data: {
+          first_name: userData?.first_name || '',
+          last_name: userData?.last_name || '',
+          phone: userData?.phone || ''
+        }
       }
     });
     
-    if (error) throw error;
-    return data;
+    if (authError) throw authError;
+    
+    // The user profile will be created automatically via the trigger
+    return authData;
   },
 
   async signIn(email: string, password: string) {
@@ -57,39 +64,9 @@ export const authService = {
       .eq('id', user.id)
       .single();
 
-    if (error && error.code !== 'PGRST116') {
+    if (error) {
       console.error('Error fetching user profile:', error);
       return null;
-    }
-
-    if (!profile) {
-      // Create profile if it doesn't exist
-      const newProfile = {
-        id: user.id,
-        email: user.email!,
-        role: user.email === 'admin@cameroonmart.cm' ? 'admin' : 'user',
-        first_name: user.user_metadata?.first_name || '',
-        last_name: user.user_metadata?.last_name || '',
-        preferences: {
-          language: 'en',
-          theme: 'emerald',
-          notifications: true,
-          data_saver: false
-        }
-      };
-
-      const { data: createdProfile, error: createError } = await supabase
-        .from('users')
-        .insert(newProfile)
-        .select()
-        .single();
-
-      if (createError) {
-        console.error('Error creating user profile:', createError);
-        return null;
-      }
-
-      return createdProfile;
     }
 
     return profile;

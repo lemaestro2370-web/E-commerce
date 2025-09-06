@@ -27,22 +27,16 @@ A revolutionary e-commerce application built specifically for Cameroon and Afric
 
 ## 👑 **Admin & Manager System**
 
-### **Admin Login Information:**
-- **Email:** `admin@cameroonmart.cm`
-- **Role:** Full Admin Access
-- **Login Method:** Use Clerk magic link authentication
-
-### **How to Login as Admin:**
-1. Go to `/auth/login`
-2. Enter email: `admin@cameroonmart.cm`
-3. Check your email for the magic link
-4. Click the link to sign in
-5. Navigate to `/admin` to access admin dashboard
+### **How to Create Admin Account:**
+1. Go to `/auth/signup`
+2. Use email: `admin@cameroonmart.cm`
+3. Use any password (account will be automatically promoted to admin)
+4. Login and navigate to `/admin` to access admin dashboard
 
 ### **User Roles:**
 - **👑 Admin:** Full control over everything (products, orders, users, settings, themes)
 - **👨‍💼 Manager:** Can manage products and orders, limited user access
-- **👤 User:** Regular customer access
+- **👤 User:** Regular customer access with personal dashboard
 
 ### **Admin Capabilities:**
 - ✅ Create, edit, delete products with multiple images
@@ -59,7 +53,7 @@ A revolutionary e-commerce application built specifically for Cameroon and Afric
 - **Frontend:** React 18 + Vite + TypeScript + Tailwind CSS
 - **Animations:** Framer Motion for smooth interactions
 - **State Management:** Zustand with persistence
-- **Authentication:** Clerk (magic link, passwordless)
+- **Authentication:** Supabase Auth (email/password)
 - **Database:** Supabase (PostgreSQL + Row Level Security)
 - **Real-time:** Supabase real-time subscriptions
 - **Payments:** Cash on Delivery + Mobile Money integration
@@ -71,9 +65,7 @@ A revolutionary e-commerce application built specifically for Cameroon and Afric
 
 ### **Prerequisites**
 - Node.js 18+ installed
-- Free accounts on:
-  - [Clerk](https://clerk.com) (authentication)
-  - [Supabase](https://supabase.com) (database)
+- Free Supabase account
 
 ### **Step 1: Environment Setup**
 
@@ -86,27 +78,20 @@ npm install
 
 **🛑 STOP & CHECK #1:** All dependencies should install without errors.
 
-2. **Create Clerk Application:**
-   - Go to [Clerk Dashboard](https://dashboard.clerk.com/)
-   - Create new application
-   - Choose "Email" as sign-in method
-   - Copy your **Publishable Key**
-
-3. **Create Supabase Project:**
+2. **Create Supabase Project:**
    - Go to [Supabase Dashboard](https://supabase.com/dashboard/)
    - Create new project
    - Wait for setup to complete (2-3 minutes)
    - Go to Settings > API
    - Copy your **URL** and **anon/public key**
 
-4. **Configure Environment:**
+3. **Configure Environment:**
 ```bash
 npm run setup
 ```
 
 Update `.env` with your actual keys:
 ```env
-VITE_CLERK_PUBLISHABLE_KEY=pk_test_your_clerk_key_here
 VITE_SUPABASE_URL=https://your-project.supabase.co
 VITE_SUPABASE_ANON_KEY=your_supabase_anon_key_here
 ```
@@ -115,11 +100,11 @@ VITE_SUPABASE_ANON_KEY=your_supabase_anon_key_here
 
 ### **Step 2: Database Setup**
 
-1. **Create Database Schema:**
+1. **Run Database Migrations:**
    - Go to your Supabase Dashboard
    - Navigate to SQL Editor
-   - Copy content from `supabase/migrations/create_production_schema.sql`
-   - Run the SQL migration
+   - Copy content from each migration file in `supabase/migrations/`
+   - Run them in order (by filename date)
 
 **🛑 STOP & CHECK #3:** Tables should be created successfully.
 
@@ -140,45 +125,45 @@ npm run dev
 
 ## 🧪 **Testing the Complete System**
 
-### **Test 1: Admin Authentication**
-1. Navigate to `/auth/login`
-2. Enter: `admin@cameroonmart.cm`
-3. Check email for magic link
-4. Click link to sign in
-5. Go to `/admin`
+### **Test 1: Create Admin Account**
+1. Navigate to `/auth/signup`
+2. Enter email: `admin@cameroonmart.cm`
+3. Enter any password
+4. Account will be automatically promoted to admin
+5. Go to `/admin` to access admin dashboard
 
-**🛑 STOP & CHECK #6:** You should see the admin dashboard with stats.
+**🛑 STOP & CHECK #6:** You should see the admin dashboard with full controls.
 
-### **Test 2: Product Management**
+### **Test 2: User Dashboard Experience**
+1. Create a regular user account with any other email
+2. Login and navigate to `/dashboard`
+3. Explore personalized user dashboard
+4. Test shopping flow and order tracking
+
+**🛑 STOP & CHECK #7:** User dashboard should show personalized content.
+
+### **Test 3: Product Management**
 1. From admin dashboard, click "New Product"
 2. Fill in product details with multiple images
 3. Save product
 4. Verify it appears on homepage and catalog
 
-**🛑 STOP & CHECK #7:** New product should be visible to customers.
+**🛑 STOP & CHECK #8:** New product should be visible to customers.
 
-### **Test 3: Customer Shopping Flow**
+### **Test 4: Complete Shopping Flow**
 1. Browse catalog with real products
 2. Click on product to see image gallery
 3. Add to cart and proceed to checkout
 4. Complete order with shipping details
 
-**🛑 STOP & CHECK #8:** Order should be created and visible in admin panel.
+**🛑 STOP & CHECK #9:** Order should be created and visible in admin panel.
 
-### **Test 4: Theme Customization**
-1. In admin dashboard, go to theme section
-2. Select different color (blue, purple, orange, etc.)
-3. Refresh homepage to see new theme
+### **Test 5: Role-Based Access**
+1. Test admin access to all features
+2. Test user access restrictions
+3. Verify dashboard differences between roles
 
-**🛑 STOP & CHECK #9:** App colors should change throughout the interface.
-
-### **Test 5: Innovative Features**
-1. **Product Gallery:** Click through multiple product images
-2. **Social Sharing:** Share product via QR code or social media
-3. **Wishlist:** Add products to favorites
-4. **Real-time Updates:** Admin changes should reflect immediately
-
-**🛑 STOP & CHECK #10:** All innovative features should work smoothly.
+**🛑 STOP & CHECK #10:** Role-based access should work correctly.
 
 ## 🎨 **Theme Customization**
 
@@ -231,23 +216,43 @@ npm run build
 ### **Environment Variables for Production:**
 Add these to your hosting platform:
 ```env
-VITE_CLERK_PUBLISHABLE_KEY=your_production_clerk_key
 VITE_SUPABASE_URL=your_production_supabase_url
 VITE_SUPABASE_ANON_KEY=your_production_supabase_key
 ```
 
 **🛑 STOP & CHECK #11:** Live site should work with all features.
 
-## 🎁 **Surprise Features**
+## 🎁 **Product Catalog**
 
-- **🎪 Easter Eggs:** Hidden animations and interactions for engaged users
-- **🌟 Achievement System:** Unlock badges for shopping milestones
-- **📱 Smart Notifications:** Personalized push notifications for deals
-- **🎨 Dynamic Themes:** Themes change based on time of day or seasons
-- **🤝 Referral Program:** Earn rewards for bringing friends
-- **📊 Personal Dashboard:** Users get insights into their shopping habits
-- **🎵 Sound Effects:** Subtle audio feedback for actions (can be disabled)
-- **🌍 Multi-Currency:** Support for multiple African currencies
+The app comes with 18+ premium products across 5 categories:
+
+### **Electronics**
+- iPhone 15 Pro Max - Latest flagship smartphone
+- Samsung Galaxy S24 Ultra - Android powerhouse
+- MacBook Pro 14" M3 - Professional laptop
+- Apple Watch Series 9 - Advanced smartwatch
+- iPad Pro 12.9" M2 - Ultimate tablet experience
+- Sony WH-1000XM5 - Premium headphones
+
+### **Fashion**
+- Nike Air Jordan 1 Retro - Iconic sneakers
+- Adidas Ultraboost 22 - Premium running shoes
+- Levi's 501 Original Jeans - Classic denim
+- Ray-Ban Aviator Sunglasses - Timeless style
+
+### **Home & Garden**
+- Nespresso Vertuo Next - Premium coffee machine
+- KitchenAid Stand Mixer - Professional baking
+- Dyson V15 Detect - Advanced vacuum cleaner
+- Instant Pot Duo 7-in-1 - Multi-functional cooker
+
+### **Automotive**
+- Tesla Model Y Accessories - Electric car kit
+- BMW Car Care Kit - Professional cleaning
+
+### **Food & Drinks**
+- Cameroon Coffee Premium Blend - Local specialty
+- Organic Honey from Cameroon - Pure natural honey
 
 ## 🔧 **Available Scripts**
 
@@ -256,26 +261,21 @@ VITE_SUPABASE_ANON_KEY=your_production_supabase_key
 - `npm run preview` - Preview production build
 - `npm run setup` - Initialize project with .env
 - `npm run seed` - Populate database with production data
-- `npm run reset` - Reset and reseed database
 
 ## 🐛 **Troubleshooting**
 
 ### **Common Issues:**
 
+**Authentication Problems:**
+- Make sure you're using Supabase Auth (not custom auth)
+- Verify Supabase URL and keys are correct
+- Check that database migrations were run successfully
+- Admin accounts are auto-created when using admin@cameroonmart.cm
+
 **Blank Screen:**
 - Check browser console for errors
 - Verify all environment variables are set correctly
 - Ensure Supabase project is active and accessible
-
-**Admin Access Issues:**
-- Verify admin user exists in Supabase users table
-- Check user role is set to 'admin'
-- Ensure RLS policies allow admin access
-
-**Authentication Problems:**
-- Verify Clerk publishable key is correct
-- Check Clerk dashboard for application status
-- Ensure magic link emails are not in spam folder
 
 **Database Connection:**
 - Verify Supabase URL and keys are correct
@@ -287,7 +287,7 @@ VITE_SUPABASE_ANON_KEY=your_production_supabase_key
 - **📧 Email:** support@cameroonmart.cm
 - **📱 Phone:** +237 6XX XXX XXX
 - **💬 Live Chat:** Available in the app
-- **📚 Documentation:** Check Supabase and Clerk docs
+- **📚 Documentation:** Check Supabase docs
 
 ## 📋 **Production Checklist**
 

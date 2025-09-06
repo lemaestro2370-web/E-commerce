@@ -60,6 +60,17 @@ export const Header: React.FC = () => {
             >
               {t('home')}
             </Link>
+            {user && (
+              <Link
+                to="/dashboard"
+                className={cn(
+                  'text-sm font-medium transition-colors hover:text-emerald-600',
+                  isActive('/dashboard') ? 'text-emerald-600' : 'text-gray-700'
+                )}
+              >
+                {language === 'fr' ? 'Tableau de Bord' : 'Dashboard'}
+              </Link>
+            )}
             <Link
               to="/catalog"
               className={cn(
@@ -69,6 +80,7 @@ export const Header: React.FC = () => {
             >
               {t('catalog')}
             </Link>
+            {user && (
             <Link
               to="/orders"
               className={cn(
@@ -78,6 +90,7 @@ export const Header: React.FC = () => {
             >
               {t('myOrders')}
             </Link>
+            )}
           </nav>
 
           {/* Right side */}
